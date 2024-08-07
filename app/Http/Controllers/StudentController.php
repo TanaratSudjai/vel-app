@@ -46,4 +46,10 @@ class StudentController extends Controller
         return $age_sumstudent ;
     }
 
+    public function maxAge()
+    {
+        $age_sumstudent = Student::max('age');
+        return $age_sumstudent ;
+    }
+
 }
