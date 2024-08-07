@@ -72,5 +72,8 @@ Route::controller(StudentController::class)->group(function () {
 
 Route::controller(TeacherController::class)->group(function () {
     Route::get('/teacher', 'getTeacher');
+    Route::get('/teacheradd', 'addTeacher');
+    Route::get('/teacherupdate', 'updateTeacher');
+    Route::get('/teacherdelete', 'delTeacher');
 });
 

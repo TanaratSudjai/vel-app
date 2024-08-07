@@ -24,5 +24,24 @@ class TeacherController extends Controller
         ]);
 
         return $teacher;
+
+        
+    }
+
+    public function updateTeacher()
+    {
+        $teacher = DB::table("teachers")->where('id', 34)->update([
+            "name"=> "Pobs",
+            "department"=>"Full stack",
+            "email"=> "pob@gmail.com",    
+        ]);
+
+        return $teacher;
+    }
+
+    public function delTeacher()
+    {
+        $teacher = DB::table("teachers")->where('id', 34)->delete();
+        return $teacher;
     }
 }
