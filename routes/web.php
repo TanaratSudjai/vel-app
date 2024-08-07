@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/showData', [userController::class, 'ShowData']);
+Route::get('/showData', [UserController::class, 'ShowData']);
 
 Route::get('/login', function () {
     return view('login');
@@ -39,21 +39,21 @@ Route::get('/index', function () {
 
 
 Route::controller(userController::class)->group(function () {
-    Route::get('/noaccess','noaccess')->middleware('check.age');
-    Route::get('/home','homepage')->middleware('check.age');
-    Route::get('/user','user')->middleware('check.age');
+    Route::get('/noaccess', 'noaccess')->middleware('check.age');
+    Route::get('/home', 'homepage')->middleware('check.age');
+    Route::get('/user', 'user')->middleware('check.age');
 });
 
 
 
 
 Route::controller(PostController::class)->group(function () {
-    Route::get('/dataPost','getPost')->name('showDataPost');
-    Route::get('/dataPost/{id}','getPostById')->name('showDataPostById');
-    Route::post('/dataPost/insertpost','InsertPost')->name('insert.post');
+    Route::get('/dataPost', 'getPost')->name('showDataPost');
+    Route::get('/dataPost/{id}', 'getPostById')->name('showDataPostById');
+    Route::post('/dataPost/insertpost', 'InsertPost')->name('insert.post');
 });
 
 
 Route::controller(CommentController::class)->group(function () {
-    Route::get('/datacomment','getComment')->name('showDataComment');
+    Route::get('/datacomment', 'getComment')->name('showDataComment');
 });

@@ -14,7 +14,7 @@ class userController extends Controller
 
     //middleware 
 
-    
+
     public function homepage()
     {
         return view("home");
