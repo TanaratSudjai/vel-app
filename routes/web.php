@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -66,5 +67,10 @@ Route::controller(StudentController::class)->group(function () {
     Route::get('/studentagesum', 'sumAge');
     Route::get('/studentageavg', 'avgAge');
     Route::get('/studentagemax', 'maxAge');
+});
+
+
+Route::controller(TeacherController::class)->group(function () {
+    Route::get('/teacher', 'getTeacher');
 });
 
