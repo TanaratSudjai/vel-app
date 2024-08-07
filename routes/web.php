@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -56,4 +57,8 @@ Route::controller(PostController::class)->group(function () {
 
 Route::controller(CommentController::class)->group(function () {
     Route::get('/datacomment', 'getComment')->name('showDataComment');
+});
+
+Route::controller(StudentController::class)->group(function () {
+    Route::get('/studentview', 'getStudent');
 });
