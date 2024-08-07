@@ -11,6 +11,6 @@ class StudentController extends Controller
 {
     public function getStudent(){
         $student = Student::all();
-        return view("studentview",compact("student")) && $student;
+        return view("studentview",compact("student")) ;
     }
 }
