@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('student', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->int('age');
+            $table->bigInteger('age');
             $table->string('department');
-            $table->string('advisor_id');
+            $table->bigInteger('advisor_id');
             $table->timestamps();
-            
         });
     }
 
