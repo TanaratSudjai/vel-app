@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -57,3 +59,21 @@ Route::controller(PostController::class)->group(function () {
 Route::controller(CommentController::class)->group(function () {
     Route::get('/datacomment', 'getComment')->name('showDataComment');
 });
+
+Route::controller(StudentController::class)->group(function () {
+    Route::get('/studentview', 'getStudent');
+    Route::get('/studentview/{id}', 'getStudentById');
+    Route::get('/studentviewcount', 'countStudent');
+    Route::get('/studentagesum', 'sumAge');
+    Route::get('/studentageavg', 'avgAge');
+    Route::get('/studentagemax', 'maxAge');
+});
+
+
+Route::controller(TeacherController::class)->group(function () {
+    Route::get('/teacher', 'getTeacher');
+    Route::get('/teacheradd', 'addTeacher');
+    Route::get('/teacherupdate', 'updateTeacher');
+    Route::get('/teacherdelete', 'delTeacher');
+});
+
