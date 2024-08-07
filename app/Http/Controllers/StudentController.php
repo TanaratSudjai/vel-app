@@ -22,8 +22,8 @@ class StudentController extends Controller
     public function getStudentById($id)
     {
         $studentbyid = Student::findOrFail($id);
-        //return view("studentviewid", compact("studentbyid"));
-        return $studentbyid ;
+        return view("studentviewid", compact("studentbyid"));
+        //return $studentbyid ;
 
     }
 

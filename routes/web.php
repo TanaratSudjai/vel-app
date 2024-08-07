@@ -67,3 +67,4 @@ Route::controller(StudentController::class)->group(function () {
     Route::get('/studentageavg', 'avgAge');
     Route::get('/studentagemax', 'maxAge');
 });
+
