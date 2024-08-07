@@ -49,7 +49,9 @@ class StudentController extends Controller
     public function maxAge()
     {
         $age_sumstudent = Student::max('age');
-        return $age_sumstudent ;
+        //add find and new data
+        $find = Student::select(Student::raw('count(*) as student_count, advisor_id'))->groupBy('advisor_id')->get();
+        return $find ;
     }
 
 }
