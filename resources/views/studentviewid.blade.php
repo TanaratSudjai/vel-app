@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student List</title>
+    <title>Student Details</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -22,12 +21,9 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .controller {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .container {
+            display: flex;
+            justify-content: center;
         }
 
         .card {
@@ -36,6 +32,8 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: all 0.3s ease;
+            max-width: 400px;
+            width: 100%;
         }
 
         .card:hover {
@@ -68,42 +66,25 @@
         }
 
         @media (max-width: 600px) {
-            .controller {
-                grid-template-columns: 1fr;
+            .container {
+                flex-direction: column;
             }
         }
     </style>
 </head>
-
 <body>
-    <h1>Student List</h1>
-    <div class="controller">
-        @foreach ($student as $datastudent)
-            <div class="card">
-                <div class="card-header">
-                    Student ID: {{ $datastudent->id }}
-                </div>
-                <div class="card-body">
-                    <div><span class="label">Name:</span> {{ $datastudent->name }}</div>
-                    <div><span class="label">Age:</span> {{ $datastudent->age }}</div>
-                    <div><span class="label">Department:</span> {{ $datastudent->department }}</div>
-                </div>
+    <h1>Student Details</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Student ID: {{ $studentbyid->id }}
             </div>
-        @endforeach
-
-        @foreach ($studentbyid as $datastudentbyid)
-            <div class="card">
-                <div class="card-header">
-                    Student ID: {{ $datastudentbyid->id }}
-                </div>
-                <div class="card-body">
-                    <div><span class="label">Name:</span> {{ $datastudentbyid->name }}</div>
-                    <div><span class="label">Age:</span> {{ $datastudentbyid->age }}</div>
-                    <div><span class="label">Department:</span> {{ $datastudentbyid->department }}</div>
-                </div>
+            <div class="card-body">
+                <div><span class="label">Name:</span> {{ $studentbyid->name }}</div>
+                <div><span class="label">Age:</span> {{ $studentbyid->age }}</div>
+                <div><span class="label">Department:</span> {{ $studentbyid->department }}</div>
             </div>
-        @endforeach
+        </div>
     </div>
 </body>
-
 </html>

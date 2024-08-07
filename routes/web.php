@@ -61,4 +61,8 @@ Route::controller(CommentController::class)->group(function () {
 
 Route::controller(StudentController::class)->group(function () {
     Route::get('/studentview', 'getStudent');
+    Route::get('/studentview/{id}', 'getStudentById');
+    Route::get('/studentviewcount', 'countStudent');
+    Route::get('/studentagesum', 'sumAge');
+    Route::get('/studentageavg', 'avgAge');
 });
